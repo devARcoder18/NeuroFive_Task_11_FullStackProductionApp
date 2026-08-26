@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------
+   FocusFlow — "Focus Signal" design tokens
+   One accent (coral), used sparingly and only where it's meaningful:
+   priority, primary actions, and the focus-ring motif.
+   --------------------------------------------------------------- */
+:root {
+  --ink: 220 13% 9%;
+  --chalk: 90 8% 96%;
+
+  --surface: 90 8% 96%;
+  --surface-raised: 0 0% 100%;
+  --border: 220 10% 88%;
+  --muted: 220 10% 94%;
+  --muted-foreground: 220 9% 42%;
+
+  --coral: 6 100% 65%;
+  --coral-foreground: 0 0% 100%;
+  --moss: 152 24% 32%;
+  --amber: 36 78% 56%;
+  --slate: 220 9% 46%;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.dark {
+  --ink: 90 8% 96%;
+  --chalk: 220 15% 7%;
+
+  --surface: 220 15% 7%;
+  --surface-raised: 220 14% 10%;
+  --border: 220 12% 18%;
+  --muted: 220 13% 14%;
+  --muted-foreground: 220 9% 62%;
+
+  --coral: 6 100% 68%;
+  --coral-foreground: 220 15% 7%;
+  --moss: 152 30% 55%;
+  --amber: 36 80% 62%;
+  --slate: 220 9% 60%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--surface));
+  color: hsl(var(--ink));
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background-color: hsl(var(--coral) / 0.25);
+}
+
+/* Priority Spine — the structural, data-bearing accent used on every
+   project card and task row instead of a decorative border. */
+.priority-spine-low { background-color: hsl(var(--slate)); }
+.priority-spine-medium { background-color: hsl(var(--amber)); }
+.priority-spine-high { background-color: hsl(var(--coral)); }
+.priority-spine-urgent {
+  background-color: hsl(var(--coral));
+  box-shadow: 0 0 0 3px hsl(var(--coral) / 0.15);
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--border));
+  border-radius: 999px;
+}
